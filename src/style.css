@@ -1,0 +1,156 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: system-ui, sans-serif;
+}
+
+canvas {
+  display: block;
+}
+
+#hint {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  font-size: 13px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Crosshair */
+.crosshair {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Red damage flash */
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(180, 0, 0, 0.85) 100%);
+}
+
+/* Health bar, top-left */
+.health-wrap {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  width: 240px;
+  color: #fff;
+  user-select: none;
+  pointer-events: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+.health-text {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.bar-bg {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #e23b3b, #ff7a4d);
+  transition: width 0.12s linear;
+}
+
+/* Ammo + XP + upgrades, bottom-right */
+.panel {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  color: #fff;
+  user-select: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+.panel .ammo {
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.panel .xp {
+  font-size: 15px;
+  color: #ffe08a;
+}
+.panel .level {
+  font-size: 12px;
+  color: #cdd6e0;
+}
+.panel .upg {
+  font: 13px/1 system-ui, sans-serif;
+  color: #fff;
+  background: rgba(20, 24, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 4px;
+  padding: 7px 10px;
+  cursor: pointer;
+}
+.panel .upg:hover:not(:disabled) {
+  background: rgba(50, 60, 75, 0.9);
+}
+.panel .upg:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Stage-up banner */
+.banner {
+  position: fixed;
+  top: 22%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  padding: 14px 26px;
+  background: rgba(150, 20, 20, 0.82);
+  border: 1px solid rgba(255, 180, 180, 0.7);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Death overlay */
+.death {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(120, 0, 0, 0.45);
+  color: #fff;
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+  user-select: none;
+}
