@@ -44,6 +44,12 @@ export class Game {
 
     this.player = new Player();
     this.player.position.copy(this.spawn);
+    if (CONFIG.debugStartNearHardStage) {
+      // One upgrade short of the hard stage, with exactly enough XP to buy it,
+      // so pressing 1 or 2 once triggers the transition.
+      this.player.levels = CONFIG.levelsForHardStage - 1;
+      this.player.xp = this.player.upgradeCost;
+    }
 
     this.input = new Input(this.renderer.domElement);
     this.projectiles = new ProjectileManager(this.scene);

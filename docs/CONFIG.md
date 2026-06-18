@@ -43,6 +43,12 @@ in [ARCHITECTURE](./ARCHITECTURE.md) (mutierbare Felder `: number` annotieren).
 | `levelsForHardStage` | 40 | Level-ups bis zur schweren Stufe |
 | `hardStageMultiplier` | 1.8 | HP-/Schaden-Skalierung der Gegner in der schweren Stufe |
 
+## Debug
+
+| Schlüssel | Default | Bedeutung |
+|-----------|---------|-----------|
+| `debugStartNearHardStage` | false | Wenn `true`: Spieler startet mit `levels = levelsForHardStage - 1` und genau genug XP, sodass **ein** Druck auf `1`/`2` den Hard-Stage-Übergang auslöst. Nur zum Testen — für den Normalbetrieb auf `false` lassen. |
+
 ## Waffe
 
 | Schlüssel | Default | Bedeutung |
@@ -94,3 +100,5 @@ in [ARCHITECTURE](./ARCHITECTURE.md) (mutierbare Felder `: number` annotieren).
   `levelsForHardStage`, oder Tier-Werte in `src/enemies.ts`.
 - **Reichweite** → `shootRange` (und ggf. `enemyShootRange`).
 - **Schnellere Progression** → `levelCostGrowth` senken oder Tier-`xp` erhöhen.
+- **Hard-Stage-Übergang testen** → `debugStartNearHardStage` auf `true`; ein Druck
+  auf `1`/`2` löst den Übergang aus. Danach wieder `false`.

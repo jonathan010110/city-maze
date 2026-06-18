@@ -24,6 +24,10 @@ export const CONFIG = {
   levelsForHardStage: 40, // after this many upgrades, enemies get stronger
   hardStageMultiplier: 1.8, // enemy hp/damage scale in the hard stage
 
+  // debug: start one upgrade short of the hard stage so a single press of
+  // 1/2 triggers the transition. Set back to false for normal play.
+  debugStartNearHardStage: true,
+
   // weapon (handgun)
   magSize: 12,
   reserveStart: 60,
