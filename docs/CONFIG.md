@@ -1,6 +1,6 @@
 # Tuning-Referenz (`src/config.ts`)
 
-[← README](./README.md) · [ARCHITECTURE](./ARCHITECTURE.md) · [GAMEPLAY](./GAMEPLAY.md)
+[← README](./README.md) · [ARCHITECTURE](./ARCHITECTURE.md) · [GAMEPLAY](./GAMEPLAY.md) · [TESTING](./TESTING.md)
 
 Alle Spielparameter liegen zentral in `CONFIG` (`src/config.ts`). **Einheiten =
 Meter / Sekunden / Radiant.** `CONFIG` ist `as const` — siehe Strict-Mode-Hinweis

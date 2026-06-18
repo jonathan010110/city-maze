@@ -1,6 +1,6 @@
 # Architektur & Datenfluss
 
-[← README](./README.md) · [GAMEPLAY](./GAMEPLAY.md) · [CONFIG](./CONFIG.md)
+[← README](./README.md) · [GAMEPLAY](./GAMEPLAY.md) · [CONFIG](./CONFIG.md) · [TESTING](./TESTING.md)
 
 ## Bootstrap
 

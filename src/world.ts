@@ -97,7 +97,7 @@ function buildingMaterials(colorIdx: number, baseIdx: number, repeatY: number): 
 
 // Recursive-backtracker maze. Returns a grid where true = wall (building),
 // false = walkable passage. Outer ring stays solid so the player is enclosed.
-function generateMazeGrid(): boolean[][] {
+export function generateMazeGrid(): boolean[][] {
   const dim = MAZE_DIM;
   const grid: boolean[][] = Array.from({ length: dim }, () => Array<boolean>(dim).fill(true));
   const isWall = (x: number, y: number) => grid[y]![x]!;
@@ -162,6 +162,11 @@ function generateMazeGrid(): boolean[][] {
   return grid;
 }
 
+// Maps a grid index to its centered world coordinate (in meters).
+export function cellWorld(i: number): number {
+  return (i - (MAZE_DIM - 1) / 2) * CONFIG.cellSize;
+}
+
 // Builds the maze of buildings and returns colliders + a safe spawn point.
 export function generateMaze(scene: THREE.Scene): MazeResult {
   if (!facadeBases) facadeBases = [makeFacadeTexture(), makeFacadeTexture(), makeFacadeTexture()];
@@ -169,8 +174,6 @@ export function generateMaze(scene: THREE.Scene): MazeResult {
   const grid = generateMazeGrid();
   const dim = MAZE_DIM;
   const { cellSize, minHeight, maxHeight } = CONFIG;
-  const half = (dim - 1) / 2;
-  const cellWorld = (i: number) => (i - half) * cellSize;
 
   const boxGeo = new THREE.BoxGeometry(1, 1, 1);
   const colliders: THREE.Box3[] = [];

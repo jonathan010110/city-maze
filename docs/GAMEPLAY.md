@@ -1,6 +1,6 @@
 # Gameplay & Balancing
 
-[← README](./README.md) · [ARCHITECTURE](./ARCHITECTURE.md) · [CONFIG](./CONFIG.md)
+[← README](./README.md) · [ARCHITECTURE](./ARCHITECTURE.md) · [CONFIG](./CONFIG.md) · [TESTING](./TESTING.md)
 
 ## Steuerung
 

@@ -18,6 +18,7 @@ Schleifen/Wege (keine Sackgassen), kein Ausgang, Gegner spawnen nach.
 
 - **Three.js** (3D-Rendering) — einzige Laufzeit-Dependency.
 - **Vite** (Dev-Server + Build), **TypeScript** im strict-Modus.
+- **Vitest** (Unit-Tests, dev-only) — siehe [TESTING.md](./TESTING.md).
 - Keine Physik-Engine, kein Framework — Bewegung, Kollision, KI und HUD sind
   von Hand geschrieben.
 
@@ -27,10 +28,13 @@ Schleifen/Wege (keine Sackgassen), kein Ausgang, Gegner spawnen nach.
 npm install        # einmalig
 npm start          # Dev-Server -> http://localhost:5173 (Vite, mit HMR)
 npm run build      # tsc (Typecheck) + vite build -> dist/
+npm test           # Vitest einmalig (CI-Modus)
+npm run test:watch # Vitest im Watch-Modus während der Entwicklung
 ```
 
 `npm run build` führt **`tsc &&  vite build`** aus — der TypeScript-Compiler ist
-der Typecheck-Gate. Vor dem Pushen immer `npm run build` grün bekommen.
+der Typecheck-Gate. Vor dem Pushen immer `npm run build` **und** `npm test` grün
+bekommen.
 
 ## Datei-Map (`src/`)
 
@@ -51,8 +55,13 @@ der Typecheck-Gate. Vor dem Pushen immer `npm run build` grün bekommen.
 
 Zusätzlich: `index.html` (lädt `src/index.ts`, enthält den Steuerungs-Hinweis `#hint`).
 
+Außerhalb von `src/`: `vitest.config.ts` (Test-Runner-Konfig) und der Ordner
+`test/` mit den Unit-Tests (`*.test.ts`). Tests liegen bewusst getrennt von `src/`,
+damit der Production-Typecheck (`tsc` über `include: ["src"]`) sie nicht mitbaut.
+
 ## Weiterführend
 
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — Aufbau, Game-Loop, Kernmuster, Strict-Mode-Fallen.
 - [GAMEPLAY.md](./GAMEPLAY.md) — Steuerung, Waffe, Gegner-Tiers, Progression, HUD.
 - [CONFIG.md](./CONFIG.md) — vollständige Tuning-Referenz.
+- [TESTING.md](./TESTING.md) — Test-Setup, Abdeckung, was bewusst nicht getestet wird, neue Tests schreiben.

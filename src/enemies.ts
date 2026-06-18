@@ -4,7 +4,7 @@ import { resolveSphereAABB, clampToGround, type Body } from './collision';
 import type { Player } from './player';
 import type { ProjectileManager } from './projectiles';
 
-interface Tier {
+export interface Tier {
   name: string;
   color: number;
   radius: number;
@@ -17,13 +17,13 @@ interface Tier {
 }
 
 // Weak -> strong. Green often misses, orange seldom, red never.
-const TIERS: Tier[] = [
+export const TIERS: Tier[] = [
   { name: 'Runt', color: 0x4caf50, radius: 0.45, hp: 30, damage: 7, speed: 3.2, xp: 2, missChance: 0.55, weight: 5 },
   { name: 'Brute', color: 0xff9800, radius: 0.6, hp: 90, damage: 13, speed: 2.7, xp: 6, missChance: 0.25, weight: 3 },
   { name: 'Titan', color: 0xe53935, radius: 0.85, hp: 220, damage: 22, speed: 2.3, xp: 15, missChance: 0, weight: 1 },
 ];
 
-function pickTier(): Tier {
+export function pickTier(): Tier {
   const total = TIERS.reduce((s, t) => s + t.weight, 0);
   let r = Math.random() * total;
   for (const t of TIERS) {
