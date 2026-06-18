@@ -25,8 +25,10 @@ export const CONFIG = {
   hardStageMultiplier: 1.8, // enemy hp/damage scale in the hard stage
 
   // debug: start one upgrade short of the hard stage so a single press of
-  // 1/2 triggers the transition. Set back to false for normal play.
-  debugStartNearHardStage: true,
+  // 1/2 triggers the transition. Nur im Dev-Build aktiv (npm start) — im
+  // Production-Build (npm run build / Deploy) ist import.meta.env.DEV false,
+  // der Cheat also garantiert deaktiviert.
+  debugStartNearHardStage: import.meta.env.DEV,
 
   // weapon (handgun)
   magSize: 12,

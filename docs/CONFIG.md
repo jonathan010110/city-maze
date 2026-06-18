@@ -47,7 +47,7 @@ in [ARCHITECTURE](./ARCHITECTURE.md) (mutierbare Felder `: number` annotieren).
 
 | Schlüssel | Default | Bedeutung |
 |-----------|---------|-----------|
-| `debugStartNearHardStage` | false | Wenn `true`: Spieler startet mit `levels = levelsForHardStage - 1` und genau genug XP, sodass **ein** Druck auf `1`/`2` den Hard-Stage-Übergang auslöst. Nur zum Testen — für den Normalbetrieb auf `false` lassen. |
+| `debugStartNearHardStage` | `import.meta.env.DEV` | Wenn aktiv: Spieler startet mit `levels = levelsForHardStage - 1` und genau genug XP, sodass **ein** Druck auf `1`/`2` den Hard-Stage-Übergang auslöst. **Nur im Dev-Build aktiv** (`npm start`); im Production-Build (`npm run build` / Deploy) ist `import.meta.env.DEV` `false`, der Cheat also automatisch deaktiviert und per Tree-Shaking aus dem Bundle entfernt. |
 
 ## Waffe
 
@@ -100,5 +100,6 @@ in [ARCHITECTURE](./ARCHITECTURE.md) (mutierbare Felder `: number` annotieren).
   `levelsForHardStage`, oder Tier-Werte in `src/enemies.ts`.
 - **Reichweite** → `shootRange` (und ggf. `enemyShootRange`).
 - **Schnellere Progression** → `levelCostGrowth` senken oder Tier-`xp` erhöhen.
-- **Hard-Stage-Übergang testen** → `debugStartNearHardStage` auf `true`; ein Druck
-  auf `1`/`2` löst den Übergang aus. Danach wieder `false`.
+- **Hard-Stage-Übergang testen** → im Dev-Build (`npm start`) ist
+  `debugStartNearHardStage` automatisch aktiv; ein Druck auf `1`/`2` löst den
+  Übergang aus. Im Production-Build ist der Cheat deaktiviert.
